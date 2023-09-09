@@ -1,35 +1,302 @@
-@import url('https://fonts.googleapis.com/css2?family=Spectral&display=swap');
-*{
-    font-family: 'Spectral', serif;
-
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+* {
+    font-family: 'Source Sans 3', sans-serif;
+    scroll-behavior: smooth;
 }
 
-.home{
+/* Add this CSS */
+body::before {
+    content: "";
+    display: block;
+    /* height: 80px; Adjust this value to match your navigation bar's height */
+    /* margin: -80px 0 0; Negative margin to offset the pseudo-element's height */
+}
+
+nav {
+    z-index: 1;
+}
+
+
+.home {
     margin-left: 5%;
     margin-right: 5%;
     padding-top: 65px;
 }
 
-.about{
-    margin-left: 5%;
-    margin-right: 5%;
-}
-
-.contact{
-    align-items: center;
-}
-
-.hero_img{
+#about {
+    width: 80%;
     display: block;
     margin-left: auto;
     margin-right: auto;
 }
 
-.hero{
+#education {
+    width: 80%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#skills {
+    width: 80%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#contact {
+    width: 80%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact {
+    align-items: center;
+}
+
+.hero_img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    transform-style: preserve-3d;
+    transform: translateZ(20px)
+}
+
+.hero {
     margin-left: 30px;
     margin-right: 30px;
     position: fixed;
     display: block;
     margin: auto;
-    
+
+}
+
+.mouse {
+    position: absolute;
+    width: 15px;
+    height: 25px;
+    bottom: 40px;
+    left: 50%;
+    margin-left: -12px;
+    border-radius: 15px;
+    border: 2px solid #888;
+    -webkit-animation: intro 1s;
+    animation: intro 1s;
+}
+
+.scroll {
+    display: block;
+    width: 3px;
+    height: 3px;
+    margin: 6px auto;
+    border-radius: 4px;
+    background: #888;
+    -webkit-animation: finger 1s infinite;
+    animation: finger 1s infinite;
+}
+
+@-webkit-keyframes intro {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes intro {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@-webkit-keyframes finger {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+}
+
+@keyframes finger {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+}
+
+
+#scroll-down-link {
+    cursor: pointer;
+    width: 0;
+    height: 0;
+    animation: mouseAnimation 1.5s infinite alternate;
+}
+
+/* Define the mouse animation */
+@keyframes mouseAnimation {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-8px);
+    }
+}
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    #about {
+        width: 100%;
+    }
+
+    #education {
+        width: 100%;
+    }
+
+    #skills {
+        width: 100%;
+    }
+
+    #contact {
+        width: 100%;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+/* @media only screen and (min-width: 600px) {...} */
+
+/* Medium devices (landscape tablets, 768px and up) */
+/* @media only screen and (min-width: 768px) {...} */
+
+/* Large devices (laptops/desktops, 992px and up) */
+/* @media only screen and (min-width: 992px) {...} */
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+/* @media only screen and (min-width: 1200px) {...} */
+
+.bloom {
+    width: 100px;
+    /* height: 100px; */
+    position: relative;
+    animation: bloomAnimation 4s infinite alternate ease-in-out;
+}
+
+@keyframes bloomAnimation {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1.2);
+        opacity: 0.5;
+    }
+}
+
+
+
+
+
+
+/* CONTACT ME  */
+/* /.contact_container {
+    row-gap: 3rem;
+  }
+  
+  .contact_info {
+    display: flex;
+    margin-bottom: 20px;
+    align-items: flex-start;
+  }
+  
+  .contact_icon {
+    font-size: 2rem;
+    color: green;
+    margin-right: 10px;
+  }
+  
+  .contact_title {
+    font-size: var(--h3-font-size);
+    font-weight: var(--font-medium);
+  }
+  
+  .contact_subtitle {
+    font-size: var(--small-font-size);
+    color: var(--text-color-light);
+  }
+  
+  .contact_content {
+    background-color: grey;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem 0.25rem;
+    border: green 2px solid;
+  }
+  
+  .contact_content.focusIn.valid {
+    border-color: #7fff00;
+  }
+  
+  .contact_content.focusIn.invalid {
+    border-color: #ff4500;
+  }
+  
+  .contact_input {
+    width: 100%;
+    background-color: var(--input-color);
+    color: var(--text-color);
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    border: none;
+    outline: none;
+    padding: 0.25rem 0.5rem 0.5rem 0;
+  }
+  
+  .contact_label {
+    font-size: var(--smaller-font-size);
+    color: var(--title-color);
+  }
+  
+  .alert_style {
+    text-align: center;
+    padding: 10px;
+    font-size: var(--small-font-size);
+    background-color: var(--first-color);
+    color: #fff;
+    border-radius: 0.5rem;
+    display: none;
+  }
+   */
+
+.alert_style {
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    height: 60px;
+    width: 50vw;
+    top: 90px;
+    /* Adjust the top value to control the vertical position */
+    right: 10px;
+    /* Adjust the right value to control the horizontal position */
+    z-index: 9999;
+    /* You can adjust the z-index if needed */
+    display: none;
 }
